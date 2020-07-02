@@ -13,10 +13,11 @@ const cat = new Object();
 // 2 - przypisujemy mu właściwości
 cat.name = "Gacek";
 cat['age'] = 2;
-// cat.age = 2; // dokładnie to sam
-cat['eye color'] = 'red';
-cat.meow = function() {
- console.log("miau miau");
+// cat.age = 2; // dokładnie to samo
+// cat['eye color'] = 'red'; //Działa, ale lepiej nie uzywac spacji - konwencja
+cat.eyeColor = "red"
+cat.meow = function () {
+    console.log("miau miau");
 }
 
 
@@ -28,25 +29,25 @@ const hamster = {};
 
 const dog = {
 
- name: ['Fafik', "Azor"],
+    name: ['Fafik', "Azor"],
 
- age: 9,
+    age: 9,
 
- 'eye color': 'black',
+    'eye color': 'black',
 
- barking: function() {
-  console.log("hau hau");
- },
+    barking: function () {
+        console.log("hau hau");
+    },
 
- // ES6
- squeaking() {
-  console.log('aaaa uuu eee');
- },
+    // ES6
+    squeaking() {
+        console.log('aaaa uuu eee');
+    },
 }
 
 // 2 - możemy dynamicznie dodwać (zmieniać) własciwości
 dog.castrated = false;
-dog.childrens = ['bobik', 'jagódka', 'muszka']
+dog.children = ['bobik', 'jagódka', 'muszka']
 dog.castrated = true;
 
 // DOSTĘP DO WŁAŚCIWOŚCI I METOD
@@ -57,7 +58,7 @@ dog.castrated = true;
 
 // USUWANIE
 
-delete dog.childrens;
+delete dog.children;
 
 // PRZYKŁAD1
 //Odwołanie do obiektu w innej funkcji
@@ -65,25 +66,25 @@ delete dog.childrens;
 let value = 1;
 
 const result = {
- value: 1,
+    value: 1,
 }
 
 function plus() {
- value++;
- result.value++;
- // return "dodane"
+    value++;
+    result.value += 2;
+    // return "dodane"
 }
 
 // PRZYKŁAD2
 //Odwołanie do obiektu w metodzie (this)
 
 const counter = {
- score: 0,
+    score: 0,
 
- increment: function() {
-  this.score++;
-  console.log(this.score);
- }
+    increment: function () {
+        this.score++;
+        console.log(this.score);
+    }
 }
 
 counter.increment()

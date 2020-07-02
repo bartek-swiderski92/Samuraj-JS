@@ -1,6 +1,8 @@
 // MODYFIKACJA ELEMENTÓW DOM
 
 const firstLi = document.querySelector('li:first-child');
+const secondLi = document.querySelector('li:nth-child(2)');
+
 
 // Możemy modyfikować zawartość elementy poprzez przypisanie nowych właściwości textConten lub innerHTML. Stara wartość jest usuwana.
 firstLi.textContent = "Nowa zawartość tekstowa";

@@ -48,7 +48,7 @@ const user3 = 34;
 const price = 76.0;
 const tax = 23;
 
-// console.log(`Do zapłaty: ${price + (price * tax) / 100} złotych`)
+console.log(`Do zapłaty: ${price + (price * tax) / 100} złotych`)
 
 // console.log(`Do zapłaty: ${(price + (price * tax) / 100).toFixed(2)} złotych`)
 
@@ -62,5 +62,4 @@ const tax = 23;
 
 let itemName = "lcd"
 let items = 20;
-console.log(`Własnie sprzedałem jeden ${itemName}. Na stanie jest jeszcze ${--items}`)
-
+console.log(`Mam w magazynie ${items--}. Własnie sprzedałem jeden ${itemName}. Na stanie jest jeszcze ${items}`)
