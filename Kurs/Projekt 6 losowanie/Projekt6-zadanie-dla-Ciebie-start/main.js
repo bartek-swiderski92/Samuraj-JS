@@ -5,7 +5,7 @@ const btnCln = document.querySelector('.clean');
 const btnAdv = document.querySelector('.showAdvice');
 const btnOpts = document.querySelector('.showOptions');
 
-//dodawanie!
+
 const addAdvice = e => {
     e.preventDefault();
     const input = document.querySelector('input');
