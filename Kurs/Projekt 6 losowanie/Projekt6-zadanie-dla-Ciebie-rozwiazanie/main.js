@@ -23,4 +23,4 @@ document.querySelector('.add').addEventListener('click', addOption);
 document.querySelector('.clean').addEventListener('click', resetOptions);
 document.querySelector('.showOptions').addEventListener('click', showOptions);
 
-//Finished
+//Finished git
