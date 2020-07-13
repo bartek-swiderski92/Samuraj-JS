@@ -7,14 +7,12 @@ Math.random() * 7 // od 0 do 7 (bez 7)
 // od do
 //od 4 do 6 (bez 6) - > np. 4.3246453, 5.6755434
 // x >=4 i x < 6
-
 Math.random() * (6 - 4) + 4;
-
 
 // Funkcja uniwersalna
 const numberRandom = (min, max) => {
-    const number = Math.random() * (max - min) + min
-    return number
+ const number = Math.random() * (max - min) + min
+ return number;
 }
 
 // od do (liczba całkowita)
@@ -23,9 +21,9 @@ const numberRandom = (min, max) => {
 
 Math.floor(Math.random() * (6 - 4 + 1) + 4);
 
-// const numberRandomIntr = (min, max) => {
-//     const number = Math.floor(Math.random() * (max - min + 1) + min);
-//     return number;
+// const numberRandomInt = (min, max) => {
+//  const number = Math.floor(Math.random() * (max - min + 1) + min);
+//  return number;
 // }
 
-const numberRandomIntr = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const numberRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);

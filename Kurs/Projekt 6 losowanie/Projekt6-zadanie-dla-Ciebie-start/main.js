@@ -33,7 +33,8 @@ const resetAdvices = e => {
     console.log('wyczyściłem tablice!')
     advices = ['Walcz!', 'Spróbuj kiedy indziej', 'Daj sobie spokój'];
     console.log(advices);
-    alert("Wyczyściłem możiwości!")
+    h1.textContent = '';
+    alert("Wyczyściłem możiwości!");
 }
 
 btnCln.addEventListener('click', resetAdvices);
