@@ -9,17 +9,18 @@
 
 
 const slideList = [{
- img: "images/img1.jpg",
- text: 'Pierwszy tekst'
-},
-{
- img: "images/img2.jpg",
- text: 'Drugi tekst'
-},
-{
- img: "images/img3.jpg",
- text: 'Trzeci tekst'
-}];
+        img: "images/img1.jpg",
+        text: 'Pierwszy tekst'
+    },
+    {
+        img: "images/img2.jpg",
+        text: 'Drugi tekst'
+    },
+    {
+        img: "images/img3.jpg",
+        text: 'Trzeci tekst'
+    }
+];
 
 const image = document.querySelector('img.slider');
 const h1 = document.querySelector('h1.slider');
@@ -31,22 +32,54 @@ let active = 0;
 // Implementacje
 
 const changeDot = () => {
- const activeDot = dots.findIndex(dot => dot.classList.contains('active'));
- dots[activeDot].classList.remove('active');
- dots[active].classList.add('active');
+    const activeDot = dots.findIndex(dot => dot.classList.contains('active'));
+    dots[activeDot].classList.remove('active');
+    dots[active].classList.add('active');
 }
 
 const changeSlide = () => {
- active++;
- if (active === slideList.length) {
-  active = 0;
- }
- image.src = slideList[active].img;
- h1.textContent = slideList[active].text;
- changeDot()
+    active++;
+    if (active === slideList.length) {
+        active = 0;
+    }
+    image.src = slideList[active].img;
+    h1.textContent = slideList[active].text;
+    changeDot()
+
 }
-setInterval(changeSlide, time)
+let interval = setInterval(changeSlide, time);
+const keyChangeSlide = (e) => {
+    if (e.keyCode === 37) {
+        clearInterval(interval);
+        console.log('strzałka w lewo')
+        active--;
+        if (active === -1) {
+            active = slideList.length - 1;
+        }
+        image.src = slideList[active].img;
+        h1.textContent = slideList[active].text;
+        changeDot();
+
+    }
+    if (e.keyCode === 39) {
+        clearInterval(interval);
+        console.log('strzałka w prawo')
+        active++;
+        if (active === slideList.length) {
+            active = 0;
+        }
+        image.src = slideList[active].img;
+        h1.textContent = slideList[active].text;
+        changeDot();
+
+
+    }
+    console.log(active);
+    interval = setInterval(changeSlide, time)
+
+}
 
 
 // utwórz funkcje keyChangeSlide. Zadanie może wymagać także zmian poza funkcją.
 window.addEventListener('keydown', keyChangeSlide)
+// window.addEventListener('keydown', changeSlide)
