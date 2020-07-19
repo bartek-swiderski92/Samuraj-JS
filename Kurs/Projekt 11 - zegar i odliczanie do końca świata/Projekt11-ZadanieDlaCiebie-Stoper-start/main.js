@@ -4,30 +4,40 @@ let hSeconds = 0;
 let seconds = 00;
 let minutes = 0;
 const startBtn = document.querySelector('.main');
-startBtn.addEventListener('click', start)
 const resetBtn = document.querySelector('.reset');
-resetBtn.addEventListener('click', reset)
-
-const div = document.querySelector('div');
+const div = document.querySelector('div div');
+let interval;
 
 function start() {
     console.log('start')
-    const interval = setInterval(() => {
-        startBtn.textContent = 'Pause';
-        hSeconds++
+    if (startBtn.textContent == 'Start') {
+        interval = setInterval(() => {
+            startBtn.textContent = 'Pause';
 
-        if (hSeconds < 10) {
-            div.textContent = `${seconds}.0${hSeconds++}`
-        } else {
-            div.textContent = `${seconds}.${hSeconds++}`
+            if (hSeconds < 10) {
+                div.textContent = `${seconds}.0${hSeconds++}`;
+            } else {
+                div.textContent = `${seconds}.${hSeconds++}`;
+            }
+            if (hSeconds == 100) {
+                hSeconds = 0;
+                seconds++;
+            }
+        }, 10);
+    } else {
+        startBtn.textContent = 'Pause'; {
+            startBtn.textContent = 'Start';
+            clearInterval(interval)
         }
-        if (hSeconds == 100) {
-            hSeconds = 0;
-            seconds++
-        }
-    }, 10);
+    }
 }
 
 function reset() {
-    console.log('reset')
+    console.log('reset');
+    hSeconds = 0;
+    seconds = 0;
+    div.textContent = '---';
 }
+
+startBtn.addEventListener('click', start)
+resetBtn.addEventListener('click', reset)
