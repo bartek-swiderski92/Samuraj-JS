@@ -11,16 +11,16 @@
 //  wszystkie metody, które umieszczamy bezpśrednio w klasie (ponizej przykład addMember) są umeiszczane w prototypie klasy
 
 class Family {
- constructor(name) {
-  this.name = name;
-  // this.addMember = function() {
-  //  console.log("wywołane z instancji");
-  // } //metoda byłaby umeiszczaona jako kopia w kazdej instancji klasy
- }
- // ta metoda umieszczana jest w prototypie klasy, który współdzielą wszystkie instancje (obiekty powstałą w oparciu o klasę)
- addMember() {
-  console.log("wywołane z prototypu");
- }
+    constructor(name) {
+        this.name = name;
+        // this.addMember = function() {
+        //  console.log("wywołane z instancji");
+        // } //metoda byłaby umeiszczaona jako kopia w kazdej instancji klasy
+    }
+    // ta metoda umieszczana jest w prototypie klasy, który współdzielą wszystkie instancje (obiekty powstałą w oparciu o klasę)
+    addMember() {
+        console.log("wywołane z prototypu");
+    }
 
 }
 
@@ -31,45 +31,42 @@ const nowakowie = new Family("nowakowie")
 nowakowie.addMember()
 
 // KLASA JEST ODPOWIEDNIKIEM KONSTRUKTORA, PONIŻEJ TO WIDAĆ DOSKONALE. UZYSKUJEMY TEN SAM EFEKT CO PRZY KLASIE
-const Family2 = function(name) {
- this.name = name;
+const Family2 = function (name) {
+    this.name = name;
 }
 const kowalscy = new Family2("kowalscy");
-Family2.prototype.addMember = function() { }
+Family2.prototype.addMember = function () {}
 
 
 
 /* ----- Wyrażenie klasy ----- */
 
 // Wyrażenie funkcyjne 
-const Person = function() { }
+const Person = function () {}
 // Deklaracja klasy
-function Person2() {
-}
+function Person2() {}
 // Deklaracja klasy
-class Person3 {
-}
+class Person3 {}
 // Wyrażenie klasy
-const Person4 = class {
-}
+const Person4 = class {}
 
 // PRZYKŁAD KLASY
 
 class Rodzina {
- constructor(members, ...names) {
-  this.members = members;
-  this.names = names;
- }
- addMember(newMember) {
-  this.names.push(newMember);
-  this.members++;
-  console.log(`Nowy członek rodziny: ${newMember}. Rodzina liczy teraz ${this.members} osób`);
- }
+    constructor(members, ...names) {
+        this.members = members;
+        this.names = names;
+    }
+    addMember(newMember) {
+        this.names.push(newMember);
+        this.members++;
+        console.log(`Nowy członek rodziny: ${newMember}. Rodzina liczy teraz ${this.members} osób`);
+    }
 
- //Metody statyczne deklarowane w klasie - Dodajemy prefiks static. Metody statyczne można wywołać z poziomu klasy (nie są dostępne z poziomu instancji)
- static makeFamily(...memebers) {
-  return memebers;
- }
+    //Metody statyczne deklarowane w klasie - Dodajemy prefiks static. Metody statyczne można wywołać z poziomu klasy (nie są dostępne z poziomu instancji)
+    static makeFamily(...memebers) {
+        return memebers;
+    }
 
 }
 
@@ -90,3 +87,85 @@ Rodzina.makeFamily('Maria', 'Filip')
 // -- czytelniejsze
 // -- uproszczenie w napisaniu wielu innych rzeczy jako np. dziedziczenie (extends). 
 // -- co da się napisać za pomocą klasy, mozna też napisać w ES6, ale jest to bardziej (lub zdecydowanie bardziej) zawiłe. Tu jest proste.
+
+
+// Czym jest klasa w JS
+
+// Jak tworzymy klasę
+
+// class Family {
+//     constructor(name) {
+//         this.name = name;
+//         this.addMember = function () {
+//             console.log('Wywołanie z instancji');
+//         }
+//     }
+//     addMember() {
+//         console.log('wywołanie z prototypu');
+//     }
+// }
+
+// const nowakowie = new Family();
+// nowakowie.addMember()
+// console.log(nowakowie);
+
+// const Family2 = function (name) {
+//     this.name = name;
+// }
+
+// const kowalscy = new Family2();
+
+// Family2.prototype.addMember = function () {
+
+// }
+
+// console.log(kowalscy);
+// Prototyp klasy
+
+// Funkcja konstruktora i Klasa
+
+// Wyrażenie klasy
+
+const Family2 = function () {}
+
+function Family3() {}
+
+class Family4 {
+
+}
+
+const Family5 = class {
+
+}
+
+class Family {
+    constructor(members, ...names) {
+        this.members = members
+        this.names = names;
+    }
+    addMember(newMember) {
+        this.names.push(newMember);
+        this.members++;
+        console.log(`Nowy członek rodziny ${newMember}. Rodzina liczy teraz ${this.members} osób.`);
+    }
+    static makeFamily(...members) {
+        return members;
+    }
+}
+
+const kowalscy = new Family(3, 'Jan', 'Ewa', 'Adam')
+
+kowalscy.addMember('Jaś');
+
+const kwiatkowscy = new Family(1, 'Piotr');
+// Metody statyczne
+
+// Warto pamiętać o klasach
+
+class Animal { //Nie podlega hoistingowi
+}
+
+function Animal2() { //Podlega Hoistingowi
+}
+
+const dog = new Animal();
