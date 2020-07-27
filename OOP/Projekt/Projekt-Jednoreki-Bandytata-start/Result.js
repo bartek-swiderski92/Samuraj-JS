@@ -1,0 +1,5 @@
+class Result {
+    static moneyWinInGame() {
+
+    }
+}
